@@ -5,8 +5,10 @@ describe("Connect4 play", function() {
     myConnect4 = new Connect4();
   })
 
-  it("should be able to let a player drop a counter", function() {
+  it("should let a player drop a counter", function() {
     expect(myConnect4.play(2)).toEqual("Player 1 has a turn")
+    expect(myConnect4.gameBoard).toEqual([ [],[],[1],[],[],[],[] ])
   })
+
 
 })
