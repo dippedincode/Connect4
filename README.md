@@ -10,4 +10,4 @@ An adjoining aim is for me to practise TDD and pairing.
 I am pairing with [David Edgar](https://github.com/david-r-edgar) from Manchester via St Albans who is a friend and highly experienced software developer. 
 
 ## Method of working
-
+JavaScript ES5 and Jasmine
