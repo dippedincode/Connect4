@@ -27,4 +27,16 @@ describe("Connect4 play", function() {
     expect(myConnect4._gameBoard).toEqual([ [],[],[1,1,1,1],[2,2,2],[],[],[] ])
   })
 
+  it("should return 'Player 2 wins' if he has 4 in a line in a column", function() {
+    myConnect4.play(2)
+    myConnect4.play(3)
+    myConnect4.play(2)
+    myConnect4.play(3)
+    myConnect4.play(2)
+    myConnect4.play(3)
+    myConnect4.play(4)
+    expect(myConnect4.play(3)).toEqual("Player 2 wins")
+    expect(myConnect4._gameBoard).toEqual([ [],[],[1,1,1],[2,2,2,2],[1],[],[] ])
+  })
+
 })

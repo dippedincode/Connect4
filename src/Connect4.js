@@ -9,9 +9,9 @@ Connect4.prototype.play = function(col) {
   this._gameBoard[col].push(player)
   if ( (this._gameBoard[col].length >= 4) &&
     (this._gameBoard[col].slice(-4).every(function (currentValue) { 
-      return currentValue === 1; 
+      return currentValue === player; 
     })) )  
-  { return "Player 1 wins" }
+  { return "Player " + player + " wins" }
 
   if ( this._playerIndex === 0 )
     { this._playerIndex = 1 }
