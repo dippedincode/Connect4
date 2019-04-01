@@ -3,18 +3,25 @@ function Connect4() {
   this._gameBoard = [ [],[],[],[],[],[],[] ]
   this._players = [1,2]
   this._playerIndex = 0
+  this._gameFinished = false
 }
 
 Connect4.prototype.play = function(col) {
   var player = this._players[this._playerIndex]
   
-  if ( this._gameBoard[col].length === 6) 
+  if (this._gameFinished) {
+    return "Game has finished!"
+  }
+
+  if (this._gameBoard[col].length === 6) 
     { return "Column full!" }
 
   this._gameBoard[col].push(player)
 
-  if ( this.testForWin(player, col) )  
-  { return "Player " + player + " wins" }
+  if (this.testForWin(player, col)) { 
+    this._gameFinished = true
+    return "Player " + player + " wins" 
+  }
 
   if ( this._playerIndex === 0 )
     { this._playerIndex = 1 }

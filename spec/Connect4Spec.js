@@ -70,6 +70,13 @@ describe("Connect4 play", function() {
     expect(myConnect4.play(3)).toEqual("Player 2 has a turn")
   })
 
+  it("should return 'Game has finished!' for any play after game won", function() {
+    setBoard(myConnect4, [3,3,4,3,5,0,6])
+    expect(myConnect4.play(2)).toEqual("Game has finished!")
+  })
+
+
+
 })
 
 function setBoard(conn4, moves) {
