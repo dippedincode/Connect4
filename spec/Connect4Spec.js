@@ -47,6 +47,12 @@ describe("Connect4 play", function() {
     setBoard(myConnect4, [5,0,5,1,4,2,4])
     expect(myConnect4.play(3)).toEqual("Player 2 wins")
   })
+
+  it("should return 'Player 2 wins' if he has 4 in a row anywhere in row", function() {
+    setBoard(myConnect4, [6,2,6,3,6,4,2])
+    expect(myConnect4.play(5)).toEqual("Player 2 wins")
+  })
+
 })
 
 function setBoard(conn4, moves) {
