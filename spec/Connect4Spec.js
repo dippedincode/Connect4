@@ -17,26 +17,32 @@ describe("Connect4 play", function() {
   })
 
   it("should return 'Player 1 wins' if he has 4 in a line in a column", function() {
-    myConnect4.play(2)
-    myConnect4.play(3)
-    myConnect4.play(2)
-    myConnect4.play(3)
-    myConnect4.play(2)
-    myConnect4.play(3)
+    setBoard(myConnect4, [2,3,2,3,2,3])
     expect(myConnect4.play(2)).toEqual("Player 1 wins")
     expect(myConnect4._gameBoard).toEqual([ [],[],[1,1,1,1],[2,2,2],[],[],[] ])
   })
 
   it("should return 'Player 2 wins' if he has 4 in a line in a column", function() {
-    myConnect4.play(2)
-    myConnect4.play(3)
-    myConnect4.play(2)
-    myConnect4.play(3)
-    myConnect4.play(2)
-    myConnect4.play(3)
-    myConnect4.play(4)
+    setBoard(myConnect4, [2,3,2,3,2,3,4])
     expect(myConnect4.play(3)).toEqual("Player 2 wins")
     expect(myConnect4._gameBoard).toEqual([ [],[],[1,1,1],[2,2,2,2],[1],[],[] ])
   })
 
+  it("should return 'Player 2 wins' if he has 4 in a line in column 0", function() {
+    setBoard(myConnect4, [2,2,2,2,1,0,2,0,3,0,1])
+    expect(myConnect4.play(0)).toEqual("Player 2 wins")
+    console.log(myConnect4._gameBoard)
+  })
+
+  it("should return 'Player 1 wins' if he has 4 in a line in a row", function() {
+    setBoard(myConnect4, [0,4,1,5,2,0])
+    expect(myConnect4.play(3)).toEqual("Player 1 wins")
+  })
+ 
 })
+
+function setBoard(conn4, moves) {
+  moves.forEach(function(move) {
+    conn4.play(move)
+  })
+}
