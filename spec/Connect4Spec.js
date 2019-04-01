@@ -33,7 +33,7 @@ describe("Connect4 play", function() {
     expect(myConnect4.play(0)).toEqual("Player 2 wins")
   })
 
-  it("should return 'Player 1 wins' if he has 4 in a line in a row", function() {
+  it("should return 'Player 1 wins' if he has 4 in a row starting at 0,0", function() {
     setBoard(myConnect4, [0,4,1,5,2,0])
     expect(myConnect4.play(3)).toEqual("Player 1 wins")
   })
@@ -42,7 +42,11 @@ describe("Connect4 play", function() {
     setBoard(myConnect4, [2,2,3,3,4,0])
     expect(myConnect4.play(5)).toEqual("Player 1 wins")
   })
- 
+
+  it("should return 'Player 2 wins' if he has 4 in a row starting at 0,0", function() {
+    setBoard(myConnect4, [5,0,5,1,4,2,4])
+    expect(myConnect4.play(3)).toEqual("Player 2 wins")
+  })
 })
 
 function setBoard(conn4, moves) {
