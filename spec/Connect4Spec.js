@@ -31,12 +31,16 @@ describe("Connect4 play", function() {
   it("should return 'Player 2 wins' if he has 4 in a line in column 0", function() {
     setBoard(myConnect4, [2,2,2,2,1,0,2,0,3,0,1])
     expect(myConnect4.play(0)).toEqual("Player 2 wins")
-    console.log(myConnect4._gameBoard)
   })
 
   it("should return 'Player 1 wins' if he has 4 in a line in a row", function() {
     setBoard(myConnect4, [0,4,1,5,2,0])
     expect(myConnect4.play(3)).toEqual("Player 1 wins")
+  })
+
+  it("should return 'Player 1 wins' if he has 4 in a row anywhere in row", function() {
+    setBoard(myConnect4, [2,2,3,3,4,0])
+    expect(myConnect4.play(5)).toEqual("Player 1 wins")
   })
  
 })

@@ -1,5 +1,5 @@
 function Connect4() {
-  debugger
+  // debugger
   this._gameBoard = [ [],[],[],[],[],[],[] ]
   this._players = [1,2]
   this._playerIndex = 0
@@ -33,9 +33,12 @@ Connect4.prototype.testForWin = function(player, col) {
   for (var i=0; i < this._gameBoard.length; i++) {
     arrayRow.push(this._gameBoard[i][rowNum] || 0) 
   }
-  if ( arrayRow.slice(0,4).every(function (currentValue) { 
-    return currentValue === player; 
-  }) ) { 
-    return true 
+  
+  for (var j=0; j<4; j++) {
+    if ( arrayRow.slice(j,j+4).every(function (currentValue) { 
+      return currentValue === player; 
+    }) ) { 
+      return true 
+    }
   }
 }
