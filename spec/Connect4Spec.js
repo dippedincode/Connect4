@@ -58,6 +58,13 @@ describe("Connect4 play", function() {
     expect(myConnect4.play(5)).toEqual("Player 1 wins")
   })
 
+  it("should return 'Column full!' if column length is already 6", function() {
+    setBoard(myConnect4, [2,2,2,2,2,2])
+    expect(myConnect4.play(2)).toEqual("Column full!")
+    expect(myConnect4.play(3)).toEqual("Player 1 has a turn")
+  })
+
+
 })
 
 function setBoard(conn4, moves) {

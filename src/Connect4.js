@@ -7,6 +7,10 @@ function Connect4() {
 
 Connect4.prototype.play = function(col) {
   var player = this._players[this._playerIndex]
+  
+  if ( this._gameBoard[col].length === 6) 
+    { return "Column full!" }
+
   this._gameBoard[col].push(player)
 
   if ( this.testForWin(player, col) )  
